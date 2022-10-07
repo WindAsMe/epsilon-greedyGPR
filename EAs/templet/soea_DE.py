@@ -75,6 +75,7 @@ soea_DE_currentToBest_1_L_templet : class - 差分进化DE/current-to-best/1/bin
             tempPop = population + experimentPop  # 临时合并，以调用otos进行一对一生存者选择
             tempPop.FitnV = ea.scaling(tempPop.ObjV, tempPop.CV, self.problem.maxormins)  # 计算适应度
             population = tempPop[ea.selecting('otos', tempPop.FitnV, NIND)]  # 采用One-to-One Survivor选择，产生新一代种群
+
             elite = greedy_acquisition(population.Chrom, population.ObjV[:, 0])
             elite = np.array(elite, "double")
             elite_f = self.problem.func(elite)

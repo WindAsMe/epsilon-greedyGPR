@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     trial = 1
     lb, ub = -100, 100
-    for func_num in range(1, 2):
+    for func_num in range(1, 29):
         for Dim in Dims:
             NIND = 50 * Dim
             FEs = 1000 * Dim
@@ -36,22 +36,22 @@ if __name__ == "__main__":
 
                 func = bench.get_function(func_num)
 
-                # CMAES_obj = CMAES.CMAES_exe(Dim, Max_iter, NIND, func, scale_range)
-                # write_obj(CMAES_obj, CMAES_obj_path)
-                #
-                # DE_obj = DE.DE_exe(Dim, Max_iter, NIND, func, scale_range)
-                # write_obj(DE_obj, DE_obj_path)
-                #
-                # GA_obj = GA.GA_exe(Dim, Max_iter, NIND, func, scale_range)
-                # write_obj(GA_obj, GA_obj_path)
+                CMAES_obj = CMAES.CMAES_exe(Dim, Max_iter, NIND, func, scale_range)
+                write_obj(CMAES_obj, CMAES_obj_path)
+
+                DE_obj = DE.DE_exe(Dim, Max_iter, NIND, func, scale_range)
+                write_obj(DE_obj, DE_obj_path)
+
+                GA_obj = GA.GA_exe(Dim, Max_iter, NIND, func, scale_range)
+                write_obj(GA_obj, GA_obj_path)
 
                 """hybrid CMA-ES, DE, GA"""
-                # hybridCMAES_obj = hybridCMAES.CMAES_exe(Dim, Max_iter, NIND, func, scale_range)
-                # write_obj(hybridCMAES_obj_trace, hybridCMAES_obj_path)
-                #
-                # hybridDE_obj = hybridDE.DE_exe(Dim, Max_iter, NIND, func, scale_range)
-                # write_obj(hybridDE_obj_trace, hybridDE_obj_path)
-                #
+                hybridCMAES_obj = hybridCMAES.CMAES_exe(Dim, Max_iter, NIND, func, scale_range)
+                write_obj(hybridCMAES_obj, hybridCMAES_obj_path)
+
+                hybridDE_obj = hybridDE.DE_exe(Dim, Max_iter, NIND, func, scale_range)
+                write_obj(hybridDE_obj, hybridDE_obj_path)
+
                 hybridGA_obj = hybridGA.GA_exe(Dim, Max_iter, NIND, func, scale_range)
-                # write_obj(hybridGA_obj_trace, hybridGA_obj_path)
+                write_obj(hybridGA_obj, hybridGA_obj_path)
 
